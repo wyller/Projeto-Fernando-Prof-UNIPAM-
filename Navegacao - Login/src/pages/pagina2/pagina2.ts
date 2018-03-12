@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Pessoa } from '../../Classes/Pessoa'
-
-/**
- * Generated class for the Pagina2Page page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ListaProvider } from '../../providers/lista/lista';
 
 @IonicPage()
 @Component({
@@ -16,19 +10,20 @@ import { Pessoa } from '../../Classes/Pessoa'
 })
 export class Pagina2Page {
 
-  pessoa:Pessoa;
-  codigo:String;
-  nome:String;
 
-  constructor(public navCtrl: NavController, public viewCtrl : ViewController,  public navParams: NavParams) {
-
-    this.pessoa = new Pessoa();
-    this.pessoa = navParams.get('Pessoa');
-    this.codigo = this.pessoa.codigo.toString();
-    this.nome = this.pessoa.nome;
+  constructor(public navCtrl: NavController, 
+    public viewCtrl : ViewController,  
+    public navParams: NavParams,
+    public lista : ListaProvider
+  ) 
+  {
+    lista.getDisciplina().then((res) => {
+      console.log('capeta:', res)
+    })
   }
 
   ionViewDidLoad() {
+   
   }
 
   voltar(){
