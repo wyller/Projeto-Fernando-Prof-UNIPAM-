@@ -12,5 +12,30 @@
   
     <p>Código: {{codigo}}</p>
     <p>Nome: {{nome}}</p>
+
+    <ion-list>
+        <button ion-item *ngFor="let d of DisciplinasAluno">
+          {{d.Disciplina}}
+        </button>
+      </ion-list>
+    <p><b>Retorno Direto</b></p>
+    <ion-list>
+        <button ion-item *ngFor="let d of retorno">
+          {{d.Disciplina}}
+        </button>
+    </ion-list>
+    <p><b>Listar uma classe Post</b></p>
+    <ion-list>
+        <button ion-item *ngFor="let d of DisciplinaAlunoPost">
+          {{d.Disciplina}}
+        </button>
+    </ion-list>
+    <p><b>Retorno Direto Post</b></p>
+    <ion-list>
+        <button ion-item *ngFor="let d of retornoPost">
+          {{d.Disciplina}}
+        </button>
+    </ion-list>
+
     <button ion-button (click)="voltar()">Voltar</button>
 </ion-content>
