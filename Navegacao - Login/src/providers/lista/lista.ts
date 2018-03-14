@@ -21,15 +21,12 @@ export class ListaProvider {
   urlPost:string = 'http://ws.unipam.edu.br/servicoportalaula/api/portalaluno/alunodisciplinapost';
   
   getDisciplina () {
-    console.log('asdf')
-    
     return new Promise ((resolve, reject) => {
       let headers = new Headers()
       headers.append('Content-type', 'application/json')
       this.http.get(this.urlGet, {headers : headers})
       .subscribe((res) => {
-    console.log('1324')
-        
+        console.log('1324')
         let data = res.json()
         resolve(data)
       },
